@@ -1,6 +1,11 @@
 # The URL through which GitLab will be accessed.
 external_url "{{ gitlab_external_url }}"
 
+# nginx configuration
+nginx['enable'] = {{ gitlab_disable_nginx }}
+ci_nginx['enable'] = {{ gitlab_disable_nginx }}
+web_server['external_users'] = ["{{ gitlab_user }}"]
+
 # Whether to redirect http to https.
 nginx['redirect_http_to_https'] = {{ gitlab_redirect_http_to_https }}
 nginx['ssl_certificate'] = "{{ gitlab_ssl_certificate }}"
@@ -20,6 +25,7 @@ gitlab_rails['ldap_bind_dn'] = '{{ gitlab_ldap_bind_dn }}'
 gitlab_rails['ldap_password'] = '{{ gitlab_ldap_password }}'
 gitlab_rails['ldap_allow_username_or_email_login'] = true
 gitlab_rails['ldap_base'] = '{{ gitlab_ldap_base }}'
+
 
 # To change other settings, see:
 # https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
