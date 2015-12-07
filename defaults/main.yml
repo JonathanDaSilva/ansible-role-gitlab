@@ -4,7 +4,7 @@ gitlab_external_url: "https://gitlab/"
 gitlab_git_data_dir: "/var/opt/gitlab/git-data"
 
 # nginx configuration
-gitlab_disable_nginx: false
+gitlab_disable_nginx: "false"
 gitlab_user: "www-gitlab"
 
 # SSL Configuration.
